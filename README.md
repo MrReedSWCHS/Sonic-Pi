@@ -21,7 +21,7 @@ loop do
   sleep 1
 end
 ```
-##Don't get trapped! Use `in_thread`
+##Don't get trapped! Use in_thread
 
 Once your loop starts it will not stop until you press STOP. To make your loop run with the next thing down in your code you can use `in_thread`.
 
