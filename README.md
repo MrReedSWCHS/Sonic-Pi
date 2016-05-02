@@ -1,9 +1,13 @@
 #Sonic Pi at SWCHS
 
+***
+
 ##What do you want to do?
 
 1. For [**HINTS**](#hints) see below
-2. For [**CHALLENGES**](https://github.com/MrReedSWCHS/Sonic-Pi/wiki) click here
+2. For [**CHALLENGE WIKI**](https://github.com/MrReedSWCHS/Sonic-Pi/wiki) click here
+
+***
 
 ##Hints and Help
 
@@ -36,7 +40,7 @@ sample :bd_zome
 
 If you have LOTS of things starting at the same time, you will need an `in_thread` on everything except the bottom thing:
 
-```
+```ruby
 in_thread do
   loop do
     play 80
@@ -61,8 +65,15 @@ You still need a `do` and `end`:
 10.times do
   play 80
   sleep 1
+end
 ```
 
-###Notes
+###Numbers or Notes?
 
 You can play numbers or note names. `play 60` is the same as `play :c4`.
+
+***
+
+##Want more ideas?
+
+If these are too simple for you, you need to look at the [**Challenge Wiki**](https://github.com/MrReedSWCHS/Sonic-Pi/wiki)
