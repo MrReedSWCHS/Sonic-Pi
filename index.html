@@ -31,47 +31,89 @@
     <!-- MAIN CONTENT -->
     <div id="main_content_wrap" class="outer">
       <section id="main_content" class="inner">
-        <p>Have a good idea that should be included below? [Submit your code here].</p>
+        <h1>
+<a id="sonic-pi-at-swchs" class="anchor" href="#sonic-pi-at-swchs" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Sonic Pi at SWCHS</h1>
+
+<hr>
 
 <h2>
-<a id="drum-loops" class="anchor" href="#drum-loops" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Drum Loops</h2>
+<a id="what-do-you-want-to-do" class="anchor" href="#what-do-you-want-to-do" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>What do you want to do?</h2>
+
+<ol>
+<li>For <a href="#hints"><strong>HINTS</strong></a> see below</li>
+<li>For <a href="https://github.com/MrReedSWCHS/Sonic-Pi/wiki"><strong>CHALLENGE WIKI</strong></a> click here</li>
+</ol>
+
+<hr>
+
+<h2>
+<a id="hints-and-help" class="anchor" href="#hints-and-help" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Hints and Help</h2>
 
 <h3>
-<a id="samples-for-looping" class="anchor" href="#samples-for-looping" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Samples for looping</h3>
+<a id="looping" class="anchor" href="#looping" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Looping</h3>
 
-<ul>
-<li>Some Sonic Pi samples are made for looping</li>
-<li>You can tell this because they have <code>loop_</code> in the name</li>
-</ul>
+<p>Loops start with <code>loop do</code> and end with <code>end</code></p>
 
-<p>Try this sample:</p>
+<div class="highlight highlight-source-ruby"><pre><span class="pl-k">loop</span> <span class="pl-k">do</span>
+  play <span class="pl-c1">80</span>
+  sleep <span class="pl-c1">1</span>
+<span class="pl-k">end</span></pre></div>
 
-<div class="highlight highlight-source-ruby"><pre>sample <span class="pl-c1">:loop_industrial</span></pre></div>
+<h2>
+<a id="dont-get-trapped-use-in_thread" class="anchor" href="#dont-get-trapped-use-in_thread" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Don't get trapped! Use <code>in_thread</code>
+</h2>
 
-<h3>
-<a id="sample_duration" class="anchor" href="#sample_duration" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>sample_duration</h3>
+<p>Once your loop starts it will not stop until you press STOP. To make your loop run with the next thing down in your code you can use <code>in_thread</code>.</p>
 
-<p><code>sample_duration</code> calculates the length of any sample that follows it. </p>
+<p>Here the loop and the sample will start at the same time.</p>
 
-<p>Use this to tell Sonic Pi how long to sleep:</p>
+<div class="highlight highlight-source-ruby"><pre>in_thread <span class="pl-k">do</span>
+  <span class="pl-k">loop</span> <span class="pl-k">do</span>
+    play <span class="pl-c1">80</span>
+    sleep <span class="pl-c1">1</span>
+  <span class="pl-k">end</span>
+<span class="pl-k">end</span>
 
-<div class="highlight highlight-source-ruby"><pre>live_loop <span class="pl-c1">:drums</span> <span class="pl-k">do</span>
-    sample <span class="pl-c1">:loop_amen</span>
-    sleep sample_duration <span class="pl-c1">:loop_amen</span>
+sample <span class="pl-c1">:bd_zome</span></pre></div>
+
+<p>If you have LOTS of things starting at the same time, you will need an <code>in_thread</code> on everything except the bottom thing:</p>
+
+<div class="highlight highlight-source-ruby"><pre>in_thread <span class="pl-k">do</span>
+  <span class="pl-k">loop</span> <span class="pl-k">do</span>
+    play <span class="pl-c1">80</span>
+    sleep <span class="pl-c1">1</span>
+  <span class="pl-k">end</span>
+<span class="pl-k">end</span>
+
+in_thread <span class="pl-k">do</span>
+  sample <span class="pl-c1">:bd_zome</span>
+<span class="pl-k">end</span>
+
+sample <span class="pl-c1">:ambi_drone</span></pre></div>
+
+<h2>
+<a id="repeats" class="anchor" href="#repeats" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Repeats</h2>
+
+<p>Instead of looping forever you can use <code>10.times</code> to say repeat something 10 times.</p>
+
+<p>You still need a <code>do</code> and <code>end</code>:</p>
+
+<div class="highlight highlight-source-ruby"><pre><span class="pl-c1">10</span>.times <span class="pl-k">do</span>
+  play <span class="pl-c1">80</span>
+  sleep <span class="pl-c1">1</span>
 <span class="pl-k">end</span></pre></div>
 
 <h3>
-<a id="beat_stretch" class="anchor" href="#beat_stretch" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>beat_stretch</h3>
+<a id="numbers-or-notes" class="anchor" href="#numbers-or-notes" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Numbers or Notes?</h3>
 
-<p>We can even tell the sample to stretch or compress to last a certain number of beats by using the <code>beat_stretch</code> option.</p>
+<p>You can play numbers or note names. <code>play 60</code> is the same as <code>play :c4</code>.</p>
 
-<p>If we know the number of beats the sample lasts (e.g. 4), we know how long to sleep!</p>
+<hr>
 
-<div class="highlight highlight-source-ruby"><pre>use_bpm <span class="pl-c1">120</span>
-live_loop <span class="pl-c1">:drums</span> <span class="pl-k">do</span>
-    sample <span class="pl-c1">:loop_amen</span>, <span class="pl-c1">beat_stretch:</span> <span class="pl-c1">4</span>
-    sleep <span class="pl-c1">4</span>
-<span class="pl-k">end</span></pre></div>
+<h2>
+<a id="want-more-ideas" class="anchor" href="#want-more-ideas" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Want more ideas?</h2>
+
+<p>If these are too simple for you, you need to look at the <a href="https://github.com/MrReedSWCHS/Sonic-Pi/wiki"><strong>Challenge Wiki</strong></a></p>
       </section>
     </div>
 
