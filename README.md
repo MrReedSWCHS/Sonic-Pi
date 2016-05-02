@@ -69,6 +69,12 @@ end
 
 ---
 
+##Change the speed
+
+You need `use_bpm` and then a number to change the speed.
+
+---
+
 ##Numbers or Notes?
 
 You can play numbers or note names. `play 60` is the same as `play :c4`.
