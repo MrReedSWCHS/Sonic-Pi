@@ -1,13 +1,11 @@
-#Sonic Pi at SWCHS
-
-##What do you want to do?
-
 1. For [**HINTS**](#hints) see below
 2. For [**CHALLENGE WIKI**](https://github.com/MrReedSWCHS/Sonic-Pi/wiki) click here
 
-##Hints and Help
+---
 
-###Looping
+#Hints and Help
+
+##Looping
 
 Loops start with `loop do` and end with `end`
 
@@ -64,12 +62,12 @@ You still need a `do` and `end`:
 end
 ```
 
-###Numbers or Notes?
+##Numbers or Notes?
 
 You can play numbers or note names. `play 60` is the same as `play :c4`.
 
 ***
 
-##Want more ideas?
+#Want more ideas?
 
 If these are too simple for you, you need to look at the [**Challenge Wiki**](https://github.com/MrReedSWCHS/Sonic-Pi/wiki)
