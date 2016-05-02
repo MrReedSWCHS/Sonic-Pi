@@ -1,22 +1,68 @@
 #Sonic Pi at SWCHS
 
-1. For [**HINTS**](#hints) click here
-2. For **CHALLENGES** click here
+##What do you want to do?
 
-This
+1. For [**HINTS**](#hints) see below
+2. For [**CHALLENGES**](https://github.com/MrReedSWCHS/Sonic-Pi/wiki) click here
 
-THis
+##Hints and Help
 
-This
+###Looping
 
-This
+Loops start with `loop do` and end with `end`
 
-This
+```ruby
+loop do
+  play 80
+  sleep 1
+end
+```
+##Don't get trapped! Use `in_thread`
 
-This
+Once your loop starts it will not stop until you press STOP. To make your loop run with the next thing down in your code you can use `in_thread`.
 
-This
+Here the loop and the sample will start at the same time.
 
-This
+```ruby
+in_thread do
+  loop do
+    play 80
+    sleep 1
+  end
+end
 
-##Hints
+sample :bd_zome
+```
+
+If you have LOTS of things starting at the same time, you will need an `in_thread` on everything except the bottom thing:
+
+```
+in_thread do
+  loop do
+    play 80
+    sleep 1
+  end
+end
+
+in_thread do
+  sample :bd_zome
+end
+
+sample :ambi_drone
+```
+
+##Repeats
+
+Instead of looping forever you can use `10.times` to say repeat something 10 times.
+
+You still need a `do` and `end`:
+
+```ruby
+10.times do
+  play 80
+  sleep 1
+```
+
+###Notes
+
+You can play numbers or note names. `play 60` is the same as `play :c4`.
