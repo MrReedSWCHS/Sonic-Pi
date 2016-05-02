@@ -1,13 +1,9 @@
 #Sonic Pi at SWCHS
 
-***
-
 ##What do you want to do?
 
 1. For [**HINTS**](#hints) see below
 2. For [**CHALLENGE WIKI**](https://github.com/MrReedSWCHS/Sonic-Pi/wiki) click here
-
-***
 
 ##Hints and Help
 
