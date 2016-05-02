@@ -3,7 +3,7 @@
 
 ---
 
-#Hints and Help
+#Hints
 
 ##Looping
 
@@ -15,6 +15,9 @@ loop do
   sleep 1
 end
 ```
+
+---
+
 ##Don't get trapped! Use in_thread
 
 Once your loop starts it will not stop until you press STOP. To make your loop run with the next thing down in your code you can use `in_thread`.
@@ -49,6 +52,8 @@ end
 sample :ambi_drone
 ```
 
+---
+
 ##Repeats
 
 Instead of looping forever you can use `10.times` to say repeat something 10 times.
@@ -61,6 +66,8 @@ You still need a `do` and `end`:
   sleep 1
 end
 ```
+
+---
 
 ##Numbers or Notes?
 
